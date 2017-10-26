@@ -1,0 +1,27 @@
+group 'com.ai.kara'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+ext {
+    appName = "test-spi"
+    moduleVersion = '1.0.10-SNAPSHOT'
+    builtBy = "gradle 3.1"
+}
+
+jar {
+    baseName appName
+    version moduleVersion
+    manifest {
+        attributes 'packageName': baseName, 'Built-By': builtBy,'create-date': new Date().format('yyyy-MM-dd HH:mm:ss'), 'Manifest-Version': version
+    }
+}
